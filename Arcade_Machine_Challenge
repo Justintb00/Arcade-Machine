@@ -1,0 +1,285 @@
+#--Updated as of 3/11/19 at 3:11am--
+
+#-------PICAR DROP MECHANISM-------
+import time
+#import picar #for picar
+#import picar.front_wheels as front_wheels #for picar
+##
+#steering= front_wheels.Front_Wheels() #for picar
+#steering.ready() #for picar
+#picar.setup() #for picar
+#steering.turn_left() #for picar
+##
+def itemDrop(): #to drop the reward after completing all the questions
+    steering.turn_straight()
+    time.sleep(1)
+    steering.turn_left()
+
+#-------TKINTER-------
+import tkinter as tk
+
+window = tk.Tk()
+window.title('Arcade Machine Challenge') 
+window.geometry('1280x720') # resolution of window in pixels
+
+#-------- TEXT FIELD -------
+display = tk.Text(master=window, height=12, width=48, font=("Sans", 14))
+display.grid(column=1,row=4)
+
+#-------- ANY WRITITNG TO BE USED ------
+
+#------- FUNCTIONS --------
+def hide_me(event):
+    event.widget.pack_forget()
+def close_window():
+    window.destroy()
+def firstFunct(): # startup screen of the GUI
+    right = 'Good Job, you may now proceed to this challenge!'
+    wrong = 'Please try again.'
+    enteredText = entPasscode.get()
+    display.delete(0.0, tk.END)
+    if enteredText == '542': # numbers from previous challenge in order to access the actual game
+        btnEnter.grid_forget()
+        entPasscode.grid_forget()
+        lblTitle.grid_forget()
+        lblPasscode.grid_forget()
+        lblNote.grid_forget()
+        display.insert(tk.END, right)
+        lblLesson.grid(column=2,row=1)
+        btnContinue.grid(column=1,row=8)
+    else:
+        display.insert(tk.END, wrong)
+        lblLesson.grid_remove()
+def Continue(): # explains the rules of the game after entering the correct numbers
+    display.delete(0.0, tk.END)
+    btnContinue.grid_forget()
+    Rules = 'The rules of the game are rather simple, pick the correct answer you move on to the next question\n \nHowever if you get one wrong you go back to the beginning\n \nFinish all the questions to the end for a reward\n \nAre you ready? Click the start button when you are ready.'
+    display.insert(tk.END,Rules)
+    btnStart.grid(column=1,row=8)
+def Start(): # the first question of the game
+    btnStart.grid_forget()
+    btnContinueQW.grid_forget()
+    lblLesson.grid_forget()
+    display.delete(0.0, tk.END)
+    btnNext.grid(column=1,row=8)
+    lblAns.grid(column=2,row=2)
+    entAnswer.grid(column=2,row=3)
+    lblMessage.grid(column=2,row=0)
+    question1 = 'If the time is 10:00 AM.\nIf Arnold is said characters best friend.\nTHEN\n\n1. Harold\n2. Helega\n3. Gerald\n4. Phobe'
+    display.insert(tk.END, question1)
+
+def Next(): # question 1
+    inputtedAnswer = entAnswer.get() # input box for the question
+    if inputtedAnswer == '3':
+        lblMessage.grid_forget()
+        lblAns.grid_forget()
+        entAnswer.grid_forget()
+        lblAns.grid(column=4,row=4)
+        entAnswer.grid(column=4,row=5)
+        display.delete(0.0,tk.END)
+        question2 = 'If Gerald is the character, THEN (blank) is the network for the tv show.\n\n1. Cartoon Network\n2. Nicklelodeon\n3. Disney\n4. Jetix'
+        display.insert(tk.END, question2)
+        btnNext.grid_forget()
+        btnNext2.grid(column=1,row=8)
+    else:
+        wrong = 'Sorry, that was incorrect.\n \nYou must now restart'
+        display.delete(0.0,tk.END)
+        display.insert(tk.END, wrong)
+        btnNext.grid_forget()
+        btnContinueQW.grid(column=1, row=8)
+
+def next2(): # question 2
+    inputtedAnswer = entAnswer.get()
+    if inputtedAnswer == '2':
+        display.delete(0.0,tk.END)
+        question3 = 'if Fairies are on Nickelodeon\nTHEN (blank) are visible\n\n1. Fairly Odd Parents\n2. Tinker Bell\n3. Navi\n4. A FaIRy DuH'
+        display.insert(tk.END,question3)
+        btnNext2.grid_forget()
+        btnNext3.grid(column=1,row=8)
+    else:
+        wrong = 'Sorry, that was incorrect.\n \nYou must now restart'
+        display.delete(0.0,tk.END)
+        display.insert(tk.END, wrong)
+        btnNext2.grid_forget()
+        btnContinueQW.grid(column=1, row=8)
+
+def next3(): # question 3
+    inputtedAnswer = entAnswer.get()
+    if inputtedAnswer == '1':
+        display.delete(0.0,tk.END)
+        question4 = 'if the fairly odd parents had a (blank)\n\n1. Ring\n2. Phone Wands\n3. Life\n4. Baby'
+        display.insert(tk.END,question4)
+        btnNext3.grid_forget()
+        btnNext4.grid(column=1,row=8)
+    else:
+        wrong = 'Sorry, that was incorrect.\n \nYou must now restart'
+        display.delete(0.0,tk.END)
+        display.insert(tk.END, wrong)
+        btnNext3.grid_forget()
+        btnContinueQW.grid(column=1, row=8)
+
+def next4(): # question 4
+    inputtedAnswer = entAnswer.get()
+    if inputtedAnswer == '4':
+        display.delete(0.0,tk.END)
+        question5 = 'THEN the Fairly Odd Parents were assigned too\n\n1. Cosmo\n2. Timmy\n3. Chloe\n4. Wanda'
+        display.insert(tk.END,question5)
+        btnNext4.grid_forget()
+        btnNext5.grid(column=1,row=8)
+    else:
+        wrong = 'Sorry, that was incorrect.\n \nYou must now restart'
+        display.delete(0.0,tk.END)
+        display.insert(tk.END, wrong)
+        btnNext4.grid_forget()
+        btnContinueQW.grid(column=1, row=8)
+
+def next5(): #question 5
+    inputtedAnswer = entAnswer.get()
+    if inputtedAnswer == '2':
+        display.delete(0.0,tk.END)
+        question6 = "If dodgeball is the game in gym class\nif you hit someone in the head\nTHEN they're (answer inserted here if you haven't got the point wow this is really long anyway)\n\n1. In\n2.Arguing with the teacher about how they are still in\n3.Staying in the game\n4. Out"
+        display.insert(tk.END,question6)
+        btnNext5.grid_forget()
+        btnNext6.grid(column=1,row=8)
+    else:
+        wrong = 'Sorry, that was incorrect.\n \nYou must now restart'
+        display.delete(0.0,tk.END)
+        display.insert(tk.END, wrong)
+        btnNext5.grid_forget()
+        btnContinueQW.grid(column=1, row=8)
+
+def next6(): # question 6
+    inputtedAnswer = entAnswer.get()
+    if inputtedAnswer == '4':
+        display.delete(0.0,tk.END)
+        question7 = "If you were in gym class and you heard the sound *End of level one*\nTHEN, the activity is...\n1. Walking\n2. Pacer Test\n3. Shootaround\n4. Weightlifting"
+        display.insert(tk.END,question7)
+        btnNext6.grid_forget()
+        btnNext7.grid(column=1,row=8)
+    else:
+        wrong = 'Sorry, that was incorrect.\n \nYou must now restart'
+        display.delete(0.0,tk.END)
+        display.insert(tk.END, wrong)
+        btnNext6.grid_forget()
+        btnContinueQW.grid(column=1, row=8)
+
+def next7(): # question 7
+    inputtedAnswer = entAnswer.get()
+    if inputtedAnswer == '2':
+        display.delete(0.0,tk.END)
+        question7 = "If we're outside on a hot summer day\n\nIf there's two jump ropes\nTHEN...\n\n1. Double Dutch\n2. Helicopter\n3. Jump rope relay\n4. Watersplash"
+        display.insert(tk.END,question7)
+        btnNext7.grid_forget()
+        btnNext8.grid(column=1,row=8)
+    else:
+        wrong = 'Sorry, that was incorrect.\n \nYou must now restart'
+        display.delete(0.0,tk.END)
+        display.insert(tk.END, wrong)
+        btnNext7.grid_forget()
+        btnContinueQW.grid(column=1, row=8)
+
+def next8(): # question 8
+    inputtedAnswer = entAnswer.get()
+    if inputtedAnswer == '1':
+        display.delete(0.0,tk.END)
+        question8 = "If you were in elementry school\nAND if you were able to ride around with your shoes\nTNEN you had....\n\n1. Razor\n2. Heelys\n3. Scooter\n4. Just some good ol' roller skates"
+        display.insert(tk.END,question8)
+        btnNext8.grid_forget()
+        btnNext9.grid(column=1,row=8)
+    else:
+        wrong = 'Sorry, that was incorrect.\n \nYou must now restart'
+        display.delete(0.0,tk.END)
+        display.insert(tk.END, wrong)
+        btnNext8.grid_forget()
+        btnContinueQW.grid(column=1, row=8)
+
+def next9(): # question 9
+    inputtedAnswer = entAnswer.get()
+    if inputtedAnswer == '2':
+        display.delete(0.0,tk.END)
+        question9 = "If his name is Courage AND he is cowardly\nTHEN, he is what animal\n\n1. A Cat\n2. A Woozle\n3. A Dog\n4. A Wolf"
+        display.insert(tk.END,question9)
+        btnNext9.grid_forget()
+        btnNext10.grid(column=1,row=8)
+    else:
+        wrong = 'Sorry, that was incorrect.\n \nYou must now restart'
+        display.delete(0.0,tk.END)
+        display.insert(tk.END, wrong)
+        btnNext9.grid_forget()
+        btnContinueQW.grid(column=1, row=8)
+
+def next10(): # question 10
+    inputtedAnswer = entAnswer.get()
+    if inputtedAnswer == '3':
+        display.delete(0.0,tk.END)
+        question10 = "If Spongebob is the fry cook\nTHEN, the name of his boss' number 1 enemy is\n\n1. Eugene\n2. Manray\n3. Harold\n4. Sheldon"
+        display.insert(tk.END,question10)
+        btnNext10.grid_forget()
+        btnNext11.grid(column=1,row=8)
+    else:
+        wrong = 'Sorry, that was incorrect.\n \nYou must now restart'
+        display.delete(0.0,tk.END)
+        display.insert(tk.END, wrong)
+        btnNext10.grid_forget()
+        btnContinueQW.grid(column=1, row=8)
+
+def next11(): # question 11
+    inputtedAnswer = entAnswer.get()
+    if inputtedAnswer == '4':
+        entAnswer.grid_forget()
+        lblAns.grid_forget()
+        display.delete(0.0,tk.END)
+        congrats = "CONGRATS YOU BEAT THIS CHALLENGE\n\nCLAIM YOUR PRIZE"
+        display.insert(tk.END,congrats)
+        btnNext11.grid_forget()
+        btnItemDrop.grid(column=1,row=8)
+        btnClose.grid(column=2,row=8)
+    else:
+        wrong = 'Sorry, that was incorrect.\n \nYou must now restart'
+        display.delete(0.0,tk.END)
+        display.insert(tk.END, wrong)
+        btnNext11.grid_forget()
+        btnContinueQW.grid(column=1, row=8)
+
+#------- LABELS ----------
+lblTitle = tk.Label(text='WELCOME TO YOUR CHALLENGE')
+lblTitle.grid(column=1,row=0)
+
+lblPasscode = tk.Label(text='Enter the passcode:', font=("Sans",13))
+lblPasscode.grid(column=0,row=1)
+
+lblAns = tk.Label(text='Remember to press the keyboard up top to activate the keyboard\nDelete your previous answer once you click next\nInsert a number in the box below', font=("Sans", 13))
+
+lblLesson = tk.Label(text='Welcome to your lesson on If-Then Statements!\n \n After "if" we put a <condition> followed by a colon.\n After that we put a block of instructions (THEN STATEMENT) which\nwill be executed only if the condition is true (i.e. evaluates to True).\n \n This block may be followed by the word else, colon and another block of\ninstructions which will be executed only if the condition is false\n(i.e. evaluates to False).\n \n The <THEN> statement should be logical. \n \nPress the continue button when you are ready',font=("Sans",14))
+
+lblNote = tk.Label(text='Using the numbers from the last challenge, type in the correct\ncombinations of those numbers to continue.\n \nPress the blue keyboard icon on the top to type in the passcode', font=("Sans", 12))
+lblNote.grid(column=2,row=1)
+
+lblMessage = tk.Label(text='Now that you have learned about if-then statements, use your knowledge in order to\nwin your reward.', font=("Sans", 12))
+
+#------- ENTRIES ---------
+entPasscode = tk.Entry()
+entPasscode.grid(column=1,row=1)
+entAnswer = tk.Entry()
+
+#-------- BUTTONS ---------
+btnEnter = tk.Button(text='Continue',command=firstFunct,font=("Sans", 16))
+btnEnter.grid(column=1,row=8)
+btnStart = tk.Button(text='Start',command=Start,font=("Sans", 16))
+btnNext = tk.Button(text='Next',command=Next,font=("Sans", 16))
+btnNext2 = tk.Button(text='Next',command=next2,font=("Sans", 16))
+btnNext3 = tk.Button(text='Next',command=next3,font=("Sans", 16))
+btnNext4 = tk.Button(text='Next',command=next4,font=("Sans", 16))
+btnNext5 = tk.Button(text='Next',command=next5,font=("Sans", 16))
+btnNext6 = tk.Button(text='Next',command=next6,font=("Sans", 16))
+btnNext7 = tk.Button(text='Next',command=next7,font=("Sans", 16))
+btnNext8 = tk.Button(text='Next',command=next8,font=("Sans", 16))
+btnNext9 = tk.Button(text='Next',command=next9,font=("Sans", 16))
+btnNext10 = tk.Button(text='Next',command=next10,font=("Sans", 16))
+btnNext11 = tk.Button(text='Next',command=next11,font=("Sans", 16))
+btnContinue = tk.Button(text='Continue',command=Continue,font=("Sans", 16))
+btnContinueQW = tk.Button(text='Try Again',command=Start,font=("Sans", 16))
+btnClose = tk.Button(text='Leave-Game',command=close_window,font=("Sans", 16))
+btnItemDrop = tk.Button(text='FINISH HIM',command=itemDrop,font=("Sans", 16))
+
+window.mainloop()
