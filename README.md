@@ -1,0 +1,1 @@
+For our semester long project in Elements Of Computer Programming I @ Delaware State University, we used the Design Thinking Project in order to make a challenge for a Childhood Memories themed escape room.
