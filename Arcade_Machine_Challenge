@@ -1,6 +1,8 @@
-#--Updated as of 3/11/19 at 3:11am--
+#--Updated as of 3/11/19 at 3:11am--#
+#Coded By Justin Bennett, Boaz Menard, and Eunice Sanvee#
 
-#-------PICAR DROP MECHANISM-------
+#-------PICAR DROP MECHANISM-------#
+#By: Eunice Sanvee#
 import time
 #import picar #for picar
 #import picar.front_wheels as front_wheels #for picar
@@ -14,7 +16,8 @@ def itemDrop(): #to drop the reward after completing all the questions
     steering.turn_straight()
     time.sleep(1)
     steering.turn_left()
-
+#---TKINTER AND FUNCTIONS---#
+#---By: Justin Bennett and Boaz Menard---#
 #-------TKINTER-------
 import tkinter as tk
 
