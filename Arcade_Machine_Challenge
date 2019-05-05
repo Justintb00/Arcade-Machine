@@ -1,8 +1,8 @@
 #--Updated as of 3/11/19 at 3:11am--#
-#Coded By Justin Bennett, Boaz Menard, and Eunice Sanvee#
+#---Coded By Justin Bennett, Boaz Menard, and Eunice Sanvee---#
 
 #-------PICAR DROP MECHANISM-------#
-#By: Eunice Sanvee#
+#---By: Eunice Sanvee---#
 import time
 #import picar #for picar
 #import picar.front_wheels as front_wheels #for picar
